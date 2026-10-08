@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Samsung Galaxy S25 Ultra | EL CAJACHO</title>
+
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <style>
+        .detalle-producto {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px;
+        }
+
+        .detalle-contenedor {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+        }
+
+        .detalle-imagen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f7f7f7;
+            border-radius: 18px;
+            padding: 30px;
+            min-height: 500px;
+        }
+
+        .detalle-imagen img {
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+            object-fit: contain;
+            transition: 0.4s ease;
+        }
+
+        .detalle-imagen img:hover {
+            transform: scale(1.05);
+        }
+
+        .detalle-info h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        .marca {
+            display: inline-block;
+            background: #111;
+            color: #fff;
+            padding: 7px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .precio-detalle {
+            font-size: 34px;
+            font-weight: bold;
+            color: #c99d17;
+            margin: 20px 0;
+        }
+
+        .descripcion {
+            color: #555;
+            line-height: 1.7;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .caracteristicas {
+            margin-top: 20px;
+        }
+
+        .caracteristica {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 14px 5px;
+            border-bottom: 1px solid #e5e5e5;
+            font-size: 16px;
+        }
+
+        .caracteristica strong {
+            color: #111;
+        }
+
+        .caracteristica span {
+            color: #666;
+            text-align: right;
+        }
+
+        .botones-producto {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn-comprar {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            background: #d9ae25;
+            color: #111;
+            text-decoration: none;
+            padding: 17px 25px;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-comprar:hover {
+            background: #b9900e;
+            color: white;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-comprar:active {
+            transform: scale(0.96);
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 17px 25px;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1ebe5d;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-whatsapp:active {
+            transform: scale(0.96);
+        }
+
+        .numero-whatsapp {
+            margin-top: 20px;
+            padding: 15px 18px;
+            background: #f1fff5;
+            border: 1px solid #25D366;
+            border-radius: 10px;
+            color: #168a43;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .numero-whatsapp span {
+            color: #111;
+            font-size: 18px;
+        }
+
+        .volver {
+            display: inline-block;
+            margin-top: 15px;
+            background: #111;
+            color: white;
+            text-decoration: none;
+            padding: 15px 22px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .volver:hover {
+            background: #333;
+            transform: translateY(-3px);
+        }
+
+        .info-contacto {
+            margin-top: 50px;
+            text-align: center;
+            background: #111;
+            color: white;
+            padding: 35px;
+            border-radius: 18px;
+        }
+
+        .info-contacto h2 {
+            margin-bottom: 10px;
+        }
+
+        .info-contacto p {
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .numero-grande {
+            font-size: 26px;
+            font-weight: bold;
+            color: #25D366;
+        }
+
+        @media (max-width: 900px) {
+            .detalle-contenedor {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .detalle-imagen {
+                min-height: 350px;
+            }
+
+            .detalle-info h1 {
+                font-size: 32px;
+            }
+
+            .precio-detalle {
+                font-size: 29px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .detalle-producto {
+                margin: 20px auto;
+                padding: 15px;
+            }
+
+            .detalle-contenedor {
+                padding: 20px;
+            }
+
+            .detalle-imagen {
+                min-height: 280px;
+                padding: 15px;
+            }
+
+            .detalle-info h1 {
+                font-size: 27px;
+            }
+
+            .precio-detalle {
+                font-size: 26px;
+            }
+
+            .botones-producto {
+                flex-direction: column;
+            }
+
+            .btn-comprar,
+            .btn-whatsapp {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .caracteristica {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .caracteristica span {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+
+    <header class="encabezado">
+
+        <div class="logo">
+            EL CAJACHO
+        </div>
+
+        <nav class="menu">
+
+            <a href="../index.html">Inicio</a>
+
+            <a href="celulares.html">Celulares</a>
+
+            <a href="audifonos.html">Audífonos</a>
+
+            <a href="accesorios.html">Accesorios</a>
+
+            <a href="ofertas.html">Ofertas</a>
+
+            <a href="contacto.html">Contacto</a>
+
+            <a href="../index.html#carrito">🛒</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- PRODUCTO -->
+
+    <main class="detalle-producto">
+
+        <div class="detalle-contenedor">
+
+            <!-- IMAGEN -->
+
+            <div class="detalle-imagen">
+
+                <img
+                    src="../img/celulares/celular4.jpg"
+                    alt="Samsung Galaxy S25 Ultra"
+                >
+
+            </div>
+
+
+            <!-- INFORMACIÓN -->
+
+            <div class="detalle-info">
+
+                <span class="marca">
+                    SAMSUNG
+                </span>
+
+                <h1>
+                    Samsung Galaxy S25 Ultra
+                </h1>
+
+                <div class="precio-detalle">
+                    S/ 3,600.00
+                </div>
+
+                <p class="descripcion">
+                    Potente smartphone Galaxy con cámaras avanzadas,
+                    pantalla premium y S Pen integrado para productividad,
+                    creatividad y entretenimiento.
+                </p>
+
+
+                <!-- CARACTERÍSTICAS -->
+
+                <div class="caracteristicas">
+
+                    <div class="caracteristica">
+                        <strong>⚡ Procesador</strong>
+                        <span>Snapdragon 8 Elite for Galaxy</span>
+                    </div>
+
+                    <div class="caracteristica">
+                        <strong>📱 Pantalla</strong>
+                        <span>Dynamic AMOLED 2X de 6.9"</span>
+                    </div>
+
+                    <div class="caracteristica">
+                        <strong>🔄 Frecuencia</strong>
+                        <span>Hasta 120 Hz</span>
+                    </div>
+
+                    <div class="caracteristica">
+                        <strong>📷 Cámara principal</strong>
+                        <span>200 MP</span>
+                    </div>
+
+                    <div class="caracteristica">
+                        <strong>🔭 Teleobjetivo</strong>
+                        <span>Zoom óptico avanzado</span>
+                    </div>
+
+                    <div class="caracteristica">
+                        <strong>✏️ S Pen</strong>
+                        <span>Incluido</span>
+                    </div>
+
+                    <div class="caracteristica">
+                        <strong>💧 Resistencia</strong>
+                        <span>IP68</span>
+                    </div>
+
+                    <div class="caracteristica">
+                        <strong>🔋 Batería</strong>
+                        <span>5000 mAh</span>
+                    </div>
+
+                    <div class="caracteristica">
+                        <strong>🤖 Galaxy AI</strong>
+                        <span>Funciones inteligentes</span>
+                    </div>
+
+                </div>
+
+
+                <!-- BOTONES -->
+
+                <div class="botones-producto">
+
+                    <a
+                        href="https://wa.me/51976604208?text=Hola%20El%20Cajacho%2C%20quiero%20comprar%20el%20Samsung%20Galaxy%20S25%20Ultra%20de%20S%2F%203600"
+                        class="btn-comprar"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        🛒 Comprar / Consultar
+                    </a>
+
+
+                    <a
+                        href="https://wa.me/51976604208?text=Hola%20El%20Cajacho%2C%20quisiera%20consultar%20sobre%20el%20Samsung%20Galaxy%20S25%20Ultra"
+                        class="btn-whatsapp"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        💬 Consultar por WhatsApp
+                    </a>
+
+                </div>
+
+
+                <!-- NÚMERO -->
+
+                <div class="numero-whatsapp">
+
+                    📱 WhatsApp:
+
+                    <span>
+                        +51 976 604 208
+                    </span>
+
+                </div>
+
+
+                <!-- VOLVER -->
+
+                <a
+                    href="celulares.html"
+                    class="volver"
+                >
+                    ← Volver a celulares
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTACTO -->
+
+        <section class="info-contacto">
+
+            <h2>
+                ¿Quieres comprar este equipo?
+            </h2>
+
+            <p>
+                Escríbenos directamente por WhatsApp
+                y te ayudaremos con tu compra.
+            </p>
+
+            <div class="numero-grande">
+                +51 976 604 208
+            </div>
+
+            <br>
+
+            <a
+                href="https://wa.me/51976604208?text=Hola%20El%20Cajacho%2C%20estoy%20interesado%20en%20el%20Samsung%20Galaxy%20S25%20Ultra"
+                class="btn-whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                💬 Escribir por WhatsApp
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+
+        <p>
+            © 2026 EL CAJACHO - Todos los derechos reservados
+        </p>
+
+        <p>
+            📱 WhatsApp:
+
+            <a
+                href="https://wa.me/51976604208"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                +51 976 604 208
+            </a>
+
+        </p>
+
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirPods Pro 4 | EL CAJACHO</title>
+
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <style>
+        .detalle-producto {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .detalle-imagen {
+            background: #f5f5f5;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .detalle-imagen img {
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            object-fit: contain;
+        }
+
+        .detalle-info h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #111;
+        }
+
+        .detalle-categoria {
+            color: #b8860b;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .detalle-descripcion {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .detalle-precio {
+            font-size: 32px;
+            font-weight: bold;
+            color: #b8860b;
+            margin-bottom: 25px;
+        }
+
+        .botones-detalle {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-whatsapp,
+        .btn-volver {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .btn-volver {
+            background: #111;
+            color: white;
+        }
+
+        .btn-volver:hover {
+            background: #b8860b;
+        }
+
+        @media (max-width: 700px) {
+            .detalle-producto {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                margin: 30px auto;
+            }
+
+            .detalle-imagen img {
+                height: 350px;
+            }
+
+            .detalle-info h1 {
+                font-size: 30px;
+            }
+
+            .detalle-precio {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <div class="logo">
+            EL CAJACHO
+        </div>
+
+        <nav>
+            <a href="../index.html">Inicio</a>
+            <a href="celulares.html">Celulares</a>
+            <a href="audifonos.html">Audífonos</a>
+            <a href="accesorios.html">Accesorios</a>
+            <a href="ofertas.html">Ofertas</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+
+        <div class="carrito">
+            🛒
+        </div>
+    </header>
+
+
+    <!-- DETALLE DEL PRODUCTO -->
+    <main>
+
+        <section class="detalle-producto">
+
+            <div class="detalle-imagen">
+                <img src="../img/audifonos/audifono2.jpg" alt="AirPods Pro 4">
+            </div>
+
+            <div class="detalle-info">
+
+                <div class="detalle-categoria">
+                    🎧 Audífonos
+                </div>
+
+                <h1>AirPods Pro 4</h1>
+
+                <p class="detalle-descripcion">
+                    Disfruta de tu música con los AirPods Pro 4,
+                    con un diseño cómodo y conexión inalámbrica
+                    para disfrutar de tus contenidos favoritos.
+                </p>
+
+                <div class="detalle-precio">
+                    S/ 150.00
+                </div>
+
+                <div class="botones-detalle">
+
+                    <a
+                        class="btn-whatsapp"
+                        href="https://wa.me/51976604208?text=Hola%20EL%20CAJACHO,%20estoy%20interesado%20en%20los%20AirPods%20Pro%204%20de%20S/%20150.00"
+                        target="_blank">
+                        📱 Comprar por WhatsApp
+                    </a>
+
+                    <a
+                        class="btn-volver"
+                        href="audifonos.html">
+                        ← Volver a audífonos
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <div class="footer-contenido">
+
+            <h2>EL CAJACHO</h2>
+
+            <p>
+                Tecnología, celulares y accesorios al alcance de todos.
+            </p>
+
+            <p>
+                📱 Celulares | 🎧 Audífonos | 🔌 Accesorios
+            </p>
+
+            <p>
+                © 2026 EL CAJACHO - Todos los derechos reservados.
+            </p>
+
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,1180 @@
+/* =====================================================
+   =====================================================
+   EL CAJACHO
+   TIENDA DE TECNOLOGÍA
+   =====================================================
+   
+   COLORES PRINCIPALES:
+   NEGRO + DORADO + BLANCO
+   
+   =====================================================
+   ===================================================== */
+
+
+/* =====================================================
+   1. CONFIGURACIÓN GENERAL
+   ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f5f5f5;
+
+    color: #171717;
+
+    line-height: 1.6;
+}
+
+
+img {
+    max-width: 100%;
+
+    display: block;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   2. ENCABEZADO
+   ===================================================== */
+
+header {
+
+    width: 100%;
+
+    min-height: 78px;
+
+    background: #080808;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 15px 6%;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    border-bottom: 1px solid #c9a227;
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =====================================================
+   3. LOGO
+   ===================================================== */
+
+.logo {
+
+    color: #d4af37;
+
+    font-size: 27px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 10px rgba(212, 175, 55, 0.25);
+}
+
+
+/* =====================================================
+   4. MENÚ
+   ===================================================== */
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+nav a {
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+nav a:hover {
+
+    color: #d4af37;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   5. CARRITO
+   ===================================================== */
+
+.carrito {
+
+    font-size: 25px;
+
+    color: #d4af37;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.carrito:hover {
+
+    transform: scale(1.15);
+}
+
+
+/* =====================================================
+   6. BANNER PRINCIPAL
+   ===================================================== */
+
+.hero {
+
+    min-height: 570px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+
+    background-image:
+
+        linear-gradient(
+            rgba(0, 0, 0, 0.20),
+            rgba(0, 0, 0, 0.45)
+        ),
+
+        url("../img/logo/banner.jpg");
+
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+}
+
+
+/* =====================================================
+   7. CONTENIDO DEL BANNER
+   ===================================================== */
+
+.hero-contenido {
+
+    max-width: 750px;
+
+    color: #ffffff;
+
+    margin-top: 230px;
+}
+
+
+.hero h1 {
+
+    font-size: 38px;
+
+    font-weight: 900;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.8);
+}
+
+
+.hero p {
+
+    font-size: 19px;
+
+    margin-bottom: 30px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+
+/* =====================================================
+   8. BOTONES GENERALES
+   ===================================================== */
+
+.boton {
+
+    display: inline-block;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #d4af37,
+            #f4d77a,
+            #b8860b
+        );
+
+    color: #111111;
+
+    padding: 13px 30px;
+
+    border-radius: 7px;
+
+    font-weight: 800;
+
+    border: 1px solid #f5d76e;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+
+.boton:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(212, 175, 55, 0.4);
+}
+
+
+/* =====================================================
+   9. CATEGORÍAS
+   ===================================================== */
+
+.categorias {
+
+    padding: 75px 6%;
+
+    background: #f5f5f5;
+
+    text-align: center;
+}
+
+
+/* TÍTULO */
+
+.categorias h2 {
+
+    font-size: 32px;
+
+    color: #171717;
+
+    margin-bottom: 45px;
+}
+
+
+/* LÍNEA DORADA */
+
+.categorias h2::after {
+
+    content: "";
+
+    display: block;
+
+    width: 65px;
+
+    height: 3px;
+
+    background: #d4af37;
+
+    margin: 12px auto 0;
+}
+
+
+/* CONTENEDOR */
+
+.categorias-contenedor {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+
+/* =====================================================
+   10. TARJETAS DE CATEGORÍAS
+   ===================================================== */
+
+.categoria {
+
+    background: #ffffff;
+
+    padding: 35px 20px;
+
+    border-radius: 12px;
+
+    border: 1px solid #e5e5e5;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.07);
+
+    transition: all 0.3s ease;
+}
+
+
+.categoria:hover {
+
+    transform: translateY(-8px);
+
+    border-color: #d4af37;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.14);
+}
+
+
+/* ICONO */
+
+.icono {
+
+    font-size: 48px;
+
+    margin-bottom: 15px;
+}
+
+
+/* NOMBRE */
+
+.categoria h3 {
+
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+
+/* DESCRIPCIÓN */
+
+.categoria p {
+
+    color: #666666;
+
+    margin-bottom: 20px;
+}
+
+
+/* ENLACE */
+
+.categoria a {
+
+    color: #9b7510;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+.categoria a:hover {
+
+    color: #d4af37;
+}
+
+
+/* =====================================================
+   11. SECCIÓN DE PRODUCTOS
+   ===================================================== */
+
+.productos {
+
+    padding: 80px 6%;
+
+    background: #ffffff;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   12. TÍTULO DE PRODUCTOS
+   ===================================================== */
+
+.titulo-seccion {
+
+    max-width: 700px;
+
+    margin: 0 auto 45px;
+}
+
+
+.mini-titulo {
+
+    display: block;
+
+    color: #a67c00;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 8px;
+}
+
+
+.titulo-seccion h2 {
+
+    font-size: 34px;
+
+    color: #171717;
+
+    margin-bottom: 10px;
+}
+
+
+.titulo-seccion h2::after {
+
+    content: "";
+
+    display: block;
+
+    width: 65px;
+
+    height: 3px;
+
+    background: #d4af37;
+
+    margin: 12px auto;
+}
+
+
+.titulo-seccion p {
+
+    color: #777777;
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   13. CONTENEDOR DE PRODUCTOS
+   ===================================================== */
+
+.productos-contenedor {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+/* =====================================================
+   14. TARJETA DE PRODUCTO
+   ===================================================== */
+
+.producto {
+
+    position: relative;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    text-align: left;
+
+    transition: all 0.3s ease;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.06);
+}
+
+
+.producto:hover {
+
+    transform: translateY(-8px);
+
+    border-color: #d4af37;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.14);
+}
+
+
+/* =====================================================
+   15. ETIQUETAS DE PRODUCTOS
+   ===================================================== */
+
+.etiqueta {
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 15px;
+
+    z-index: 5;
+
+    padding: 6px 11px;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 0.7px;
+}
+
+
+/* DESTACADO */
+
+.etiqueta.destacado {
+
+    background: #111111;
+
+    color: #d4af37;
+}
+
+
+/* NUEVO */
+
+.etiqueta.nuevo {
+
+    background: #d4af37;
+
+    color: #111111;
+}
+
+
+/* OFERTA */
+
+.etiqueta.oferta {
+
+    background: #b8860b;
+
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   16. IMAGEN DEL PRODUCTO
+   ===================================================== */
+
+.producto-imagen {
+
+    width: 100%;
+
+    height: 280px;
+
+    background: #f8f8f8;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+.producto-imagen img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    padding: 25px;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+/* ZOOM */
+
+.producto:hover
+.producto-imagen img {
+
+    transform: scale(1.06);
+}
+
+
+/* =====================================================
+   17. INFORMACIÓN DEL PRODUCTO
+   ===================================================== */
+
+.producto-info {
+
+    padding: 22px;
+}
+
+
+/* CATEGORÍA */
+
+.categoria-producto {
+
+    font-size: 11px;
+
+    color: #a67c00;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+
+/* NOMBRE */
+
+.producto h3 {
+
+    font-size: 21px;
+
+    margin: 7px 0;
+
+    color: #171717;
+}
+
+
+/* DESCRIPCIÓN */
+
+.descripcion-producto {
+
+    color: #777777;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    min-height: 45px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =====================================================
+   18. PRECIOS
+   ===================================================== */
+
+.producto-precio {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+}
+
+
+/* PRECIO ACTUAL */
+
+.precio {
+
+    font-size: 23px;
+
+    font-weight: 900;
+
+    color: #a67c00;
+}
+
+
+/* PRECIO ANTERIOR */
+
+.precio-anterior {
+
+    font-size: 14px;
+
+    color: #999999;
+
+    text-decoration: line-through;
+}
+
+
+/* =====================================================
+   19. BOTONES DEL PRODUCTO
+   ===================================================== */
+
+.producto-botones {
+
+    display: flex;
+
+    gap: 10px;
+}
+
+
+/* BOTÓN VER PRODUCTO */
+
+.btn-ver {
+
+    flex: 1;
+
+    text-align: center;
+
+    padding: 10px 8px;
+
+    border-radius: 6px;
+
+    background: #111111;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: all 0.3s ease;
+}
+
+
+.btn-ver:hover {
+
+    background: #d4af37;
+
+    color: #111111;
+}
+
+
+/* BOTÓN WHATSAPP */
+
+.btn-whatsapp {
+
+    flex: 1;
+
+    text-align: center;
+
+    padding: 10px 8px;
+
+    border-radius: 6px;
+
+    background: #f5f5f5;
+
+    color: #333333;
+
+    border: 1px solid #dddddd;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: all 0.3s ease;
+}
+
+
+.btn-whatsapp:hover {
+
+    background: #d4af37;
+
+    color: #111111;
+
+    border-color: #d4af37;
+}
+
+
+/* =====================================================
+   20. BOTÓN VER TODOS
+   ===================================================== */
+
+.ver-todos {
+
+    margin-top: 45px;
+}
+
+
+/* =====================================================
+   21. SECCIÓN CONTACTO
+   ===================================================== */
+
+.contacto {
+
+    padding: 80px 20px;
+
+    text-align: center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #050505,
+            #151515
+        );
+
+    color: #ffffff;
+
+    border-top: 1px solid #c9a227;
+}
+
+
+.contacto h2 {
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+
+.contacto p {
+
+    color: #d5d5d5;
+
+    max-width: 650px;
+
+    margin: 0 auto 30px;
+}
+
+
+/* =====================================================
+   22. PIE DE PÁGINA
+   ===================================================== */
+
+footer {
+
+    background: #030303;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    border-top: 1px solid #292929;
+}
+
+
+footer h3 {
+
+    color: #d4af37;
+
+    font-size: 26px;
+
+    margin-bottom: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+footer p {
+
+    color: #999999;
+
+    margin: 5px 0;
+}
+
+
+/* =====================================================
+   23. TABLETS
+   ===================================================== */
+
+@media (max-width: 1000px) {
+
+
+    /* MENÚ */
+
+    nav {
+
+        gap: 15px;
+    }
+
+
+    nav a {
+
+        font-size: 14px;
+    }
+
+
+    /* CATEGORÍAS */
+
+    .categorias-contenedor {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    /* PRODUCTOS */
+
+    .productos-contenedor {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    /* BANNER */
+
+    .hero {
+
+        min-height: 500px;
+    }
+
+
+    .hero-contenido {
+
+        margin-top: 200px;
+    }
+
+}
+
+
+/* =====================================================
+   24. CELULARES
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+
+    /* HEADER */
+
+    header {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 20px;
+    }
+
+
+    /* MENÚ */
+
+    nav {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 12px;
+    }
+
+
+    nav a {
+
+        font-size: 13px;
+    }
+
+
+    /* CARRITO */
+
+    .carrito {
+
+        display: none;
+    }
+
+
+    /* BANNER */
+
+    .hero {
+
+        min-height: 430px;
+
+        background-position: center;
+    }
+
+
+    .hero-contenido {
+
+        margin-top: 170px;
+    }
+
+
+    .hero h1 {
+
+        font-size: 28px;
+    }
+
+
+    .hero p {
+
+        font-size: 16px;
+    }
+
+
+    /* CATEGORÍAS */
+
+    .categorias {
+
+        padding: 55px 20px;
+    }
+
+
+    .categorias-contenedor {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* PRODUCTOS */
+
+    .productos {
+
+        padding: 55px 20px;
+    }
+
+
+    .productos-contenedor {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* TÍTULOS */
+
+    .categorias h2 {
+
+        font-size: 27px;
+    }
+
+
+    .titulo-seccion h2 {
+
+        font-size: 28px;
+    }
+
+
+    /* CONTACTO */
+
+    .contacto h2 {
+
+        font-size: 29px;
+    }
+
+
+    /* IMAGEN PRODUCTO */
+
+    .producto-imagen {
+
+        height: 250px;
+    }
+
+}
+
+
+/* =====================================================
+   25. CELULARES PEQUEÑOS
+   ===================================================== */
+
+@media (max-width: 450px) {
+
+
+    /* LOGO */
+
+    .logo {
+
+        font-size: 22px;
+    }
+
+
+    /* MENÚ */
+
+    nav {
+
+        gap: 8px;
+    }
+
+
+    nav a {
+
+        font-size: 12px;
+    }
+
+
+    /* BANNER */
+
+    .hero h1 {
+
+        font-size: 25px;
+    }
+
+
+    .hero p {
+
+        font-size: 15px;
+    }
+
+
+    /* BOTÓN */
+
+    .boton {
+
+        padding: 11px 22px;
+    }
+
+
+    /* BOTONES PRODUCTO */
+
+    .producto-botones {
+
+        flex-direction: column;
+    }
+
+
+    .btn-ver,
+    .btn-whatsapp {
+
+        width: 100%;
+    }
+
+
+    /* PRODUCTO */
+
+    .producto-imagen {
+
+        height: 230px;
+    }
+
+}

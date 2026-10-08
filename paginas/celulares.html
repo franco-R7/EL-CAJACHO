@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Celulares | EL CAJACHO</title>
+
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <style>
+
+        /* ================================
+           PÁGINA DE CELULARES
+        ================================= */
+
+        .pagina-productos {
+            padding: 60px 5%;
+            background: #f5f5f5;
+            min-height: 70vh;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .titulo-seccion h1 {
+            font-size: 38px;
+            color: #111;
+            margin-bottom: 10px;
+        }
+
+        .titulo-seccion p {
+            color: #666;
+            font-size: 17px;
+        }
+
+
+        /* ================================
+           GRID
+        ================================= */
+
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* ================================
+           TARJETA
+        ================================= */
+
+        .producto-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.10);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.20);
+        }
+
+
+        /* ================================
+           IMAGEN
+        ================================= */
+
+        .producto-img {
+            width: 100%;
+            height: 280px;
+            object-fit: contain;
+            padding: 15px;
+            background: white;
+            transition: transform 0.4s ease;
+        }
+
+        .producto-card:hover .producto-img {
+            transform: scale(1.06);
+        }
+
+
+        /* ================================
+           INFORMACIÓN
+        ================================= */
+
+        .producto-info {
+            padding: 20px;
+        }
+
+        .producto-categoria {
+            color: #b8860b;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .producto-info h3 {
+            color: #111;
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .producto-descripcion {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+            min-height: 45px;
+            margin-bottom: 15px;
+        }
+
+        .producto-precio {
+            color: #111;
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+
+        /* ================================
+           BOTONES
+        ================================= */
+
+        .producto-botones {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-ver,
+        .btn-comprar {
+            flex: 1;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            padding: 12px 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+
+        /* VER DETALLES */
+
+        .btn-ver {
+            background: #111;
+            color: white;
+            border: 2px solid #111;
+        }
+
+        .btn-ver:hover {
+            background: #d4af37;
+            color: #111;
+            border-color: #d4af37;
+            transform: translateY(-4px);
+            box-shadow: 0 7px 15px rgba(212,175,55,0.35);
+        }
+
+
+        /* COMPRAR */
+
+        .btn-comprar {
+            background: #25D366;
+            color: white;
+            border: 2px solid #25D366;
+        }
+
+        .btn-comprar:hover {
+            background: #128C7E;
+            border-color: #128C7E;
+            color: white;
+            transform: translateY(-4px);
+            box-shadow: 0 7px 15px rgba(18,140,126,0.35);
+        }
+
+        .btn-ver:active,
+        .btn-comprar:active {
+            transform: scale(0.96);
+        }
+
+
+        /* ================================
+           ETIQUETAS
+        ================================= */
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 5;
+        }
+
+        .destacado {
+            background: #d4af37;
+            color: #111;
+        }
+
+        .nuevo {
+            background: #111;
+            color: white;
+        }
+
+
+        /* ================================
+           CONTACTO
+        ================================= */
+
+        .contacto-productos {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            padding: 45px 20px;
+            background: #111;
+            color: white;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .contacto-productos h2 {
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        .contacto-productos p {
+            margin-bottom: 10px;
+        }
+
+        .numero-whatsapp {
+            font-size: 23px;
+            font-weight: bold;
+            margin: 20px 0 25px;
+        }
+
+        .btn-whatsapp-general {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp-general:hover {
+            background: #128C7E;
+            transform: translateY(-4px);
+        }
+
+
+        /* ================================
+           RESPONSIVE
+        ================================= */
+
+        @media (max-width: 1000px) {
+
+            .productos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .productos-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+
+            .titulo-seccion h1 {
+                font-size: 30px;
+            }
+
+            .producto-img {
+                height: 260px;
+            }
+
+        }
+
+
+        @media (max-width: 450px) {
+
+            .pagina-productos {
+                padding: 40px 15px;
+            }
+
+            .producto-botones {
+                flex-direction: column;
+            }
+
+            .numero-whatsapp {
+                font-size: 19px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     CABECERA
+=========================================== -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <a href="../index.html">
+            EL CAJACHO
+        </a>
+
+    </div>
+
+
+    <nav class="nav">
+
+        <a href="../index.html">
+            Inicio
+        </a>
+
+        <a href="celulares.html">
+            Celulares
+        </a>
+
+        <a href="audifonos.html">
+            Audífonos
+        </a>
+
+        <a href="accesorios.html">
+            Accesorios
+        </a>
+
+        <a href="ofertas.html">
+            Ofertas
+        </a>
+
+        <a href="contacto.html">
+            Contacto
+        </a>
+
+        <a href="#" class="carrito">
+            🛒
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==========================================
+     CONTENIDO
+=========================================== -->
+
+<main class="pagina-productos">
+
+
+    <section class="titulo-seccion">
+
+        <h1>
+            📱 Celulares
+        </h1>
+
+        <p>
+            Encuentra los mejores smartphones en EL CAJACHO
+        </p>
+
+    </section>
+
+
+
+    <section class="productos-grid">
+
+
+        <!-- ======================================
+             IPHONE 17 PRO MAX
+        ======================================= -->
+
+        <article class="producto-card">
+
+            <span class="badge destacado">
+                DESTACADO
+            </span>
+
+
+            <img
+                src="../img/celulares/celular1.jpg"
+                alt="iPhone 17 Pro Max"
+                class="producto-img"
+            >
+
+
+            <div class="producto-info">
+
+                <div class="producto-categoria">
+                    APPLE
+                </div>
+
+
+                <h3>
+                    iPhone 17 Pro Max
+                </h3>
+
+
+                <p class="producto-descripcion">
+                    Potencia Pro, cámaras avanzadas y gran autonomía para un rendimiento excepcional.
+                </p>
+
+
+                <div class="producto-precio">
+                    S/ 4,330.00
+                </div>
+
+
+                <div class="producto-botones">
+
+
+                    <a
+                        href="iphone17promax.html"
+                        class="btn-ver"
+                    >
+                        👁 Ver detalles
+                    </a>
+
+
+                    <a
+                        href="https://wa.me/51976604208?text=Hola%20El%20Cajacho%2C%20estoy%20interesado%20en%20el%20iPhone%2017%20Pro%20Max%20de%20S%2F%204330"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-comprar"
+                    >
+                        🛒 Comprar
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ======================================
+             IPHONE 17 PRO
+        ======================================= -->
+
+        <article class="producto-card">
+
+            <span class="badge nuevo">
+                NUEVO
+            </span>
+
+
+            <img
+                src="../img/celulares/celular2.jpg"
+                alt="iPhone 17 Pro"
+                class="producto-img"
+            >
+
+
+            <div class="producto-info">
+
+                <div class="producto-categoria">
+                    APPLE
+                </div>
+
+
+                <h3>
+                    iPhone 17 Pro
+                </h3>
+
+
+                <p class="producto-descripcion">
+                    Diseño Pro, chip A19 Pro y sistema de cámaras avanzado para un gran rendimiento.
+                </p>
+
+
+                <div class="producto-precio">
+                    S/ 4,200.00
+                </div>
+
+
+                <div class="producto-botones">
+
+
+                    <a
+                        href="iphone17pro.html"
+                        class="btn-ver"
+                    >
+                        👁 Ver detalles
+                    </a>
+
+
+                    <a
+                        href="https://wa.me/51976604208?text=Hola%20El%20Cajacho%2C%20estoy%20interesado%20en%20el%20iPhone%2017%20Pro%20de%20S%2F%204200"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-comprar"
+                    >
+                        🛒 Comprar
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ======================================
+             IPHONE 16 PRO MAX
+        ======================================= -->
+
+        <article class="producto-card">
+
+
+            <img
+                src="../img/celulares/celular3.jpg"
+                alt="iPhone 16 Pro Max"
+                class="producto-img"
+            >
+
+
+            <div class="producto-info">
+
+                <div class="producto-categoria">
+                    APPLE
+                </div>
+
+
+                <h3>
+                    iPhone 16 Pro Max
+                </h3>
+
+
+                <p class="producto-descripcion">
+                    Potente chip A18 Pro, cámaras Pro, gran pantalla y excelente batería.
+                </p>
+
+
+                <div class="producto-precio">
+                    S/ 3,200.00
+                </div>
+
+
+                <div class="producto-botones">
+
+
+                    <a
+                        href="iphone16promax.html"
+                        class="btn-ver"
+                    >
+                        👁 Ver detalles
+                    </a>
+
+
+                    <a
+                        href="https://wa.me/51976604208?text=Hola%20El%20Cajacho%2C%20estoy%20interesado%20en%20el%20iPhone%2016%20Pro%20Max%20de%20S%2F%203200"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-comprar"
+                    >
+                        🛒 Comprar
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ======================================
+             SAMSUNG GALAXY S25 ULTRA
+        ======================================= -->
+
+        <article class="producto-card">
+
+
+            <img
+                src="../img/celulares/celular4.jpg"
+                alt="Samsung Galaxy S25 Ultra"
+                class="producto-img"
+            >
+
+
+            <div class="producto-info">
+
+                <div class="producto-categoria">
+                    SAMSUNG
+                </div>
+
+
+                <h3>
+                    Samsung Galaxy S25 Ultra
+                </h3>
+
+
+                <p class="producto-descripcion">
+                    Potente Galaxy con cámaras avanzadas, pantalla premium y S Pen integrado.
+                </p>
+
+
+                <div class="producto-precio">
+                    S/ 3,600.00
+                </div>
+
+
+                <div class="producto-botones">
+
+
+                    <a
+                        href="s25ultra.html"
+                        class="btn-ver"
+                    >
+                        👁 Ver detalles
+                    </a>
+
+
+                    <a
+                        href="https://wa.me/51976604208?text=Hola%20El%20Cajacho%2C%20estoy%20interesado%20en%20el%20Samsung%20Galaxy%20S25%20Ultra%20de%20S%2F%203600"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-comprar"
+                    >
+                        🛒 Comprar
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ======================================
+             POCO F8 ULTRA
+        ======================================= -->
+
+        <article class="producto-card">
+
+            <span class="badge destacado">
+                DESTACADO
+            </span>
+
+
+            <img
+                src="../img/celulares/celular5.jpg"
+                alt="POCO F8 Ultra"
+                class="producto-img"
+            >
+
+
+            <div class="producto-info">
+
+                <div class="producto-categoria">
+                    POCO
+                </div>
+
+
+                <h3>
+                    POCO F8 Ultra
+                </h3>
+
+
+                <p class="producto-descripcion">
+                    Potencia extrema, pantalla AMOLED y gran rendimiento para juegos y aplicaciones.
+                </p>
+
+
+                <div class="producto-precio">
+                    S/ 2,550.00
+                </div>
+
+
+                <div class="producto-botones">
+
+
+                    <a
+                        href="pocof8ultra.html"
+                        class="btn-ver"
+                    >
+                        👁 Ver detalles
+                    </a>
+
+
+                    <a
+                        href="https://wa.me/51976604208?text=Hola%20El%20Cajacho%2C%20estoy%20interesado%20en%20el%20POCO%20F8%20Ultra%20de%20S%2F%202550"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-comprar"
+                    >
+                        🛒 Comprar
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ======================================
+             POCO X8 PRO
+        ======================================= -->
+
+        <article class="producto-card">
+
+            <span class="badge nuevo">
+                NUEVO
+            </span>
+
+
+            <img
+                src="../img/celulares/celular6.jpg"
+                alt="POCO X8 Pro"
+                class="producto-img"
+            >
+
+
+            <div class="producto-info">
+
+                <div class="producto-categoria">
+                    POCO
+                </div>
+
+
+                <h3>
+                    POCO X8 Pro
+                </h3>
+
+
+                <p class="producto-descripcion">
+                    Gran rendimiento, pantalla AMOLED y batería de larga duración.
+                </p>
+
+
+                <div class="producto-precio">
+                    S/ 1,330.00
+                </div>
+
+
+                <div class="producto-botones">
+
+
+                    <a
+                        href="pocox8pro.html"
+                        class="btn-ver"
+                    >
+                        👁 Ver detalles
+                    </a>
+
+
+                    <a
+                        href="https://wa.me/51976604208?text=Hola%20El%20Cajacho%2C%20estoy%20interesado%20en%20el%20POCO%20X8%20Pro%20de%20S%2F%201330"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-comprar"
+                    >
+                        🛒 Comprar
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         WHATSAPP
+    =========================================== -->
+
+    <section class="contacto-productos">
+
+        <h2>
+            ¿Quieres comprar algún celular?
+        </h2>
+
+
+        <p>
+            Escríbenos directamente por WhatsApp.
+        </p>
+
+
+        <div class="numero-whatsapp">
+            📱 +51 976 604 208
+        </div>
+
+
+        <a
+            href="https://wa.me/51976604208?text=Hola%20El%20Cajacho%2C%20quiero%20consultar%20sobre%20sus%20celulares"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-whatsapp-general"
+        >
+            💬 Escribir por WhatsApp
+        </a>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ==========================================
+     FOOTER
+=========================================== -->
+
+<footer class="footer">
+
+    <div class="footer-contenido">
+
+
+        <div>
+
+            <h3>
+                EL CAJACHO
+            </h3>
+
+            <p>
+                Tecnología y accesorios al mejor precio.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Contacto
+            </h3>
+
+            <p>
+                📱 +51 976 604 208
+            </p>
+
+            <p>
+                📍 Juliaca - Puno
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                WhatsApp
+            </h3>
+
+            <a
+                href="https://wa.me/51976604208"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                💬 +51 976 604 208
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 EL CAJACHO - Todos los derechos reservados.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!--
+    IMPORTANTE:
+    NO ponemos app.js aquí.
+    Así ningún JavaScript puede cambiar el número de WhatsApp.
+-->
+
+</body>
+
+</html>

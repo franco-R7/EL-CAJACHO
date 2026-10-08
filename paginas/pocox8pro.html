@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POCO X8 Pro | EL CAJACHO</title>
+
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <style>
+        .detalle-producto {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .detalle-imagen {
+            background: #f5f5f5;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .detalle-imagen img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+
+        .detalle-info h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        .categoria-producto {
+            color: #c9a227;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .descripcion-producto {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .precio-producto {
+            font-size: 34px;
+            font-weight: bold;
+            color: #c9a227;
+            margin-bottom: 25px;
+        }
+
+        .caracteristicas {
+            margin: 25px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .caracteristica {
+            display: flex;
+            justify-content: space-between;
+            padding: 13px 0;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .caracteristica strong {
+            color: #222;
+        }
+
+        .caracteristica span {
+            color: #666;
+            text-align: right;
+        }
+
+        .botones-producto {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .btn-regresar {
+            display: inline-block;
+            background: #111;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-regresar:hover {
+            background: #c9a227;
+            color: #111;
+        }
+
+        .numero-whatsapp {
+            margin-top: 20px;
+            color: #555;
+            font-size: 15px;
+        }
+
+        @media (max-width: 800px) {
+            .detalle-producto {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                gap: 30px;
+            }
+
+            .detalle-info h1 {
+                font-size: 30px;
+            }
+
+            .precio-producto {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .detalle-producto {
+                margin: 25px auto;
+                padding: 15px;
+            }
+
+            .detalle-imagen {
+                padding: 15px;
+            }
+
+            .detalle-info h1 {
+                font-size: 26px;
+            }
+
+            .botones-producto {
+                flex-direction: column;
+            }
+
+            .btn-whatsapp,
+            .btn-regresar {
+                text-align: center;
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="encabezado">
+
+        <div class="logo">
+            <a href="../index.html">EL CAJACHO</a>
+        </div>
+
+        <nav class="menu">
+            <a href="../index.html">Inicio</a>
+            <a href="celulares.html">Celulares</a>
+            <a href="audifonos.html">Audífonos</a>
+            <a href="accesorios.html">Accesorios</a>
+            <a href="ofertas.html">Ofertas</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+
+        <div class="carrito">
+            🛒
+        </div>
+
+    </header>
+
+
+    <!-- DETALLE DEL PRODUCTO -->
+    <main>
+
+        <section class="detalle-producto">
+
+            <!-- IMAGEN -->
+            <div class="detalle-imagen">
+                <img
+                    src="../img/celulares/celular6.jpg"
+                    alt="POCO X8 Pro">
+            </div>
+
+
+            <!-- INFORMACIÓN -->
+            <div class="detalle-info">
+
+                <div class="categoria-producto">
+                    POCO
+                </div>
+
+                <h1>POCO X8 Pro</h1>
+
+                <p class="descripcion-producto">
+                    Gran rendimiento, pantalla AMOLED y batería de larga duración.
+                    Una excelente opción para disfrutar de juegos, aplicaciones
+                    y entretenimiento con gran fluidez.
+                </p>
+
+                <div class="precio-producto">
+                    S/ 1,330.00
+                </div>
+
+
+                <!-- CARACTERÍSTICAS -->
+                <div class="caracteristicas">
+
+                    <div class="caracteristica">
+                        <strong>Marca</strong>
+                        <span>POCO</span>
+                    </div>
+
+                    <div class="caracteristica">
+                        <strong>Modelo</strong>
+                        <span>POCO X8 Pro</span>
+                    </div>
+
+                    <div class="caracteristica">
+                        <strong>Pantalla</strong>
+                        <span>AMOLED</span>
+                    </div>
+
+                    <div class="caracteristica">
+                        <strong>Rendimiento</strong>
+                        <span>Gran rendimiento</span>
+                    </div>
+
+                    <div class="caracteristica">
+                        <strong>Batería</strong>
+                        <span>Larga duración</span>
+                    </div>
+
+                    <div class="caracteristica">
+                        <strong>Uso recomendado</strong>
+                        <span>Juegos y aplicaciones</span>
+                    </div>
+
+                    <div class="caracteristica">
+                        <strong>Precio</strong>
+                        <span>S/ 1,330.00</span>
+                    </div>
+
+                </div>
+
+
+                <!-- BOTONES -->
+                <div class="botones-producto">
+
+                    <a
+                        href="https://wa.me/51976604208?text=Hola%20EL%20CAJACHO,%20estoy%20interesado%20en%20el%20POCO%20X8%20Pro%20de%20S/%201,330.00"
+                        class="btn-whatsapp"
+                        target="_blank">
+                        💬 Comprar por WhatsApp
+                    </a>
+
+                    <a
+                        href="celulares.html"
+                        class="btn-regresar">
+                        ← Volver a celulares
+                    </a>
+
+                </div>
+
+                <p class="numero-whatsapp">
+                    📱 WhatsApp: <strong>+51 976 604 208</strong>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+
+        <p>
+            © 2026 EL CAJACHO - Todos los derechos reservados.
+        </p>
+
+        <p>
+            📱 WhatsApp: +51 976 604 208
+        </p>
+
+    </footer>
+
+</body>
+</html>

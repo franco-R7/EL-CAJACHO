@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ofertas | EL CAJACHO</title>
+
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <style>
+
+        /* =====================================================
+           CORRECCIÓN DEL ENCABEZADO
+        ===================================================== */
+
+        header {
+            width: 100%;
+            min-height: 75px;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 5%;
+            box-sizing: border-box;
+            background: #080808;
+        }
+
+        header .logo {
+            width: auto !important;
+            height: auto !important;
+            max-width: none !important;
+            background: none !important;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        /* Si quedó alguna imagen dentro del logo, ocultarla */
+        header .logo img {
+            display: none !important;
+        }
+
+        header .logo a {
+            text-decoration: none;
+        }
+
+        header nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        header nav a {
+            white-space: nowrap;
+        }
+
+        header .carrito {
+            flex-shrink: 0;
+        }
+
+
+        /* =====================================================
+           OFERTAS
+        ===================================================== */
+
+        .ofertas-contenedor {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 35px 25px 70px;
+            box-sizing: border-box;
+        }
+
+
+        /* =====================================================
+           FOTO DE OFERTAS
+        ===================================================== */
+
+        .oferta-imagen {
+            width: 100%;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #111;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.20);
+        }
+
+        .oferta-imagen img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+
+        /* =====================================================
+           TEXTO
+        ===================================================== */
+
+        .oferta-texto {
+            text-align: center;
+            padding: 40px 20px 25px;
+        }
+
+        .oferta-texto h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #111;
+        }
+
+        .oferta-texto h2 span {
+            color: #c89b3c;
+        }
+
+        .oferta-texto p {
+            max-width: 800px;
+            margin: 0 auto 28px;
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           BOTÓN WHATSAPP
+        ===================================================== */
+
+        .boton-oferta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            padding: 16px 32px;
+
+            background: #c89b3c;
+            color: #111;
+
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+
+            border-radius: 10px;
+
+            transition: all 0.3s ease;
+        }
+
+        .boton-oferta:hover {
+            background: #111;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+
+        /* =====================================================
+           BENEFICIOS
+        ===================================================== */
+
+        .beneficios-oferta {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 45px;
+        }
+
+        .beneficio {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .beneficio:hover {
+            transform: translateY(-5px);
+            border-color: #c89b3c;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+        }
+
+        .beneficio-icono {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .beneficio h3 {
+            color: #111;
+            margin-bottom: 10px;
+        }
+
+        .beneficio p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+
+        /* =====================================================
+           PARTE FINAL
+        ===================================================== */
+
+        .oferta-final {
+            margin-top: 50px;
+            padding: 40px 25px;
+            background: #111;
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .oferta-final h2 {
+            color: #c89b3c;
+            margin-bottom: 12px;
+        }
+
+        .oferta-final p {
+            color: #eee;
+            margin-bottom: 25px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            header nav {
+                gap: 15px;
+            }
+
+            .beneficios-oferta {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 15px;
+            }
+
+            header nav {
+                gap: 10px;
+            }
+
+            header nav a {
+                font-size: 0.9rem;
+            }
+
+            .ofertas-contenedor {
+                padding: 25px 12px 50px;
+            }
+
+            .oferta-imagen {
+                border-radius: 10px;
+            }
+
+            .oferta-texto h2 {
+                font-size: 1.7rem;
+            }
+
+            .oferta-texto p {
+                font-size: 0.95rem;
+            }
+
+            .boton-oferta {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         ENCABEZADO
+    ===================================================== -->
+
+    <header>
+
+        <div class="logo">
+            EL CAJACHO
+        </div>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Inicio
+            </a>
+
+            <a href="celulares.html">
+                Celulares
+            </a>
+
+            <a href="audifonos.html">
+                Audífonos
+            </a>
+
+            <a href="accesorios.html">
+                Accesorios
+            </a>
+
+            <a href="ofertas.html">
+                Ofertas
+            </a>
+
+            <a href="contacto.html">
+                Contacto
+            </a>
+
+        </nav>
+
+
+        <div
+            class="carrito"
+            title="Carrito de compras">
+
+            🛒
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         TÍTULO
+    ===================================================== -->
+
+    <section class="titulo-seccion pagina-productos">
+
+        <h1>
+            🔥 Ofertas Especiales
+        </h1>
+
+        <p>
+            Solicita una oferta personalizada y descubre nuestros mejores precios.
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         OFERTAS
+    ===================================================== -->
+
+    <main class="ofertas-contenedor">
+
+
+        <!-- FOTO PROMOCIONAL -->
+
+        <div class="oferta-imagen">
+
+            <img
+                src="../img/logo/ofertas.jpg"
+                alt="Ofertas especiales de EL CAJACHO">
+
+        </div>
+
+
+
+        <!-- TEXTO -->
+
+        <div class="oferta-texto">
+
+            <h2>
+                ¿Buscas el
+                <span>mejor precio?</span>
+            </h2>
+
+            <p>
+                En <strong>EL CAJACHO</strong> puedes solicitar
+                una oferta especial para celulares, audífonos
+                y accesorios.
+
+                Escríbenos por WhatsApp y consulta nuestras
+                promociones disponibles.
+            </p>
+
+
+            <a
+                class="boton-oferta"
+                href="https://wa.me/51976604208?text=Hola%20EL%20CAJACHO%2C%20quiero%20solicitar%20una%20oferta.%20%C2%BFQu%C3%A9%20promociones%20tienen%20disponibles%3F"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                📱 PEDIR OFERTA POR WHATSAPP
+
+            </a>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             BENEFICIOS
+        ===================================================== -->
+
+        <div class="beneficios-oferta">
+
+
+            <div class="beneficio">
+
+                <div class="beneficio-icono">
+                    💰
+                </div>
+
+                <h3>
+                    Precios exclusivos
+                </h3>
+
+                <p>
+                    Consulta directamente por WhatsApp
+                    nuestros mejores precios.
+                </p>
+
+            </div>
+
+
+
+            <div class="beneficio">
+
+                <div class="beneficio-icono">
+                    🎁
+                </div>
+
+                <h3>
+                    Promociones especiales
+                </h3>
+
+                <p>
+                    Pregunta por las promociones disponibles
+                    en nuestros productos.
+                </p>
+
+            </div>
+
+
+
+            <div class="beneficio">
+
+                <div class="beneficio-icono">
+                    💬
+                </div>
+
+                <h3>
+                    Atención personalizada
+                </h3>
+
+                <p>
+                    Escríbenos y consulta por el producto
+                    que estás buscando.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =====================================================
+             LLAMADA FINAL
+        ===================================================== -->
+
+        <div class="oferta-final">
+
+            <h2>
+                🔥 ¡Solicita tu oferta ahora!
+            </h2>
+
+            <p>
+                Dinos qué producto estás buscando
+                y consulta directamente por WhatsApp.
+            </p>
+
+
+            <a
+                class="boton-oferta"
+                href="https://wa.me/51976604208?text=Hola%20EL%20CAJACHO%2C%20estoy%20interesado%20en%20una%20oferta.%20Quisiera%20consultar%20el%20precio%20de%20un%20producto."
+                target="_blank"
+                rel="noopener noreferrer">
+
+                💬 CONSULTAR OFERTA
+
+            </a>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-contenido">
+
+
+            <div>
+
+                <h3>
+                    EL CAJACHO
+                </h3>
+
+                <p>
+                    Celulares, audífonos y accesorios.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Enlaces
+                </h3>
+
+                <a href="../index.html">
+                    Inicio
+                </a>
+
+                <a href="celulares.html">
+                    Celulares
+                </a>
+
+                <a href="audifonos.html">
+                    Audífonos
+                </a>
+
+                <a href="accesorios.html">
+                    Accesorios
+                </a>
+
+                <a href="ofertas.html">
+                    Ofertas
+                </a>
+
+                <a href="contacto.html">
+                    Contacto
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Contacto
+                </h3>
+
+                <p>
+                    📱 +51 976 604 208
+                </p>
+
+                <a
+                    href="https://wa.me/51976604208?text=Hola%20EL%20CAJACHO%2C%20quiero%20consultar%20por%20una%20oferta."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    💬 WhatsApp
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 EL CAJACHO. Todos los derechos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
